@@ -44,6 +44,16 @@ public static class MessageEtensions
     {
         return new Vector3(message.GetFloat(), message.GetFloat(), message.GetFloat());
     }
+
+    public static Message AddGlobalPosition(this Message message, GlobalPosition value)
+    {
+        return message.AddDouble(value.X).AddDouble(value.Z);
+    }
+
+    public static GlobalPosition GetGlobalPosition(this Message message)
+    {
+        return new GlobalPosition(message.GetDouble(), message.GetDouble());
+    }
     #endregion
 
     #region Quaternion

@@ -8,14 +8,14 @@ namespace Ulf
 {
     public static class MathUtils
     {
-        private const float latitudeMultiple = 111.320f;
-        private const float earthRadius = 40075f;
-        public static Vector2 FromLatLong(float latitude, float longitude)
+        private const double latitudeMultiple = 111.320d;
+        private const double earthRadius = 40075d;
+        public static GlobalPosition FromLatLong(float latitude, float longitude)
         {
-            var longLenght = earthRadius * Mathf.Cos(latitude) / 360f;
+            var longLenght = earthRadius * Math.Cos(latitude) / 360f;
             var lat = latitudeMultiple * latitude;
             var lon = longLenght * longitude;
-            return new Vector2(lat, lon);
+            return new GlobalPosition(lat, lon);
         }
         public static float GetMinAngleDiff(float x, float y)
         {
