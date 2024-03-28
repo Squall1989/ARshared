@@ -8,18 +8,18 @@ namespace ARshared
     public struct GpsClientMsg : IMessageSerializable
     {
         public float Accuracy;
-        public GlobalPosition Position;
+        public Vector3 Position;
 
         public void Deserialize(Message message)
         {
             Accuracy = message.GetFloat();
-            Position = message.GetGlobalPosition();
+            Position = message.GetVector3();
         }
 
         public void Serialize(Message message)
         {
             message.AddFloat(Accuracy);
-            message.AddGlobalPosition(Position);
+            message.AddVector3(Position);
         }
     }
 }

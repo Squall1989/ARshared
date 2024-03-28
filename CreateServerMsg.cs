@@ -7,18 +7,18 @@ namespace ARshared
     public struct CreateServerMsg : IMessageSerializable
     {
         public int PrefabId;
-        public GlobalPosition Position;
+        public Vector3 Position;
 
         public void Deserialize(Message message)
         {
             PrefabId = message.GetInt();
-            Position = message.GetGlobalPosition();
+            Position = message.GetVector3();
         }
 
         public void Serialize(Message message)
         {
             message.AddInt(PrefabId);
-            message.AddGlobalPosition(Position);
+            message.AddVector3(Position);
         }
     }
 }

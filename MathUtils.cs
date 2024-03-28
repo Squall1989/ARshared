@@ -10,12 +10,12 @@ namespace Ulf
     {
         private const double latitudeMultiple = 111.320d;
         private const double earthRadius = 40075d;
-        public static GlobalPosition FromLatLong(float latitude, float longitude)
+        public static Vector3 FromLatLong(float latitude, float longitude)
         {
             var longLenght = earthRadius * Math.Cos(latitude) / 360f;
             var lat = latitudeMultiple * latitude;
             var lon = longLenght * longitude;
-            return new GlobalPosition(lat, lon);
+            return new Vector3((float)lat, 0, (float)lon);
         }
         public static float GetMinAngleDiff(float x, float y)
         {
